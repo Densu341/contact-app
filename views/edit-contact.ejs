@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h2>Halaman Edit Contact</h2>
+      <!-- alert -->
+      <% if (typeof errors != 'undefined') { %>
+      <div class="alert alert-danger pb-0" role="alert">
+        <% errors.forEach((error) => {%>
+        <ul>
+          <li><%= error.msg %></li>
+        </ul>
+        <% }) %>
+      </div>
+      <% } %>
+      <form action="/contact?_method=PUT" method="POST">
+        <input type="hidden" name="_id" value="<%= contact._id %>" />
+        <input
+          type="hidden"
+          name="oldNama"
+          value="<%= contact.oldNama || contact.nama %>"
+        />
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama</label>
+          <!-- input hidden nama -->
+          <input
+            type="text"
+            class="form-control"
+            id="nama"
+            name="nama"
+            value="<%= contact.nama %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nomer" class="form-label">Nomer</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nomer"
+            name="nomer"
+            value="<%= contact.nomer %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="email"
+            value="<%= contact.email %>"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Edit Contact</button>
+      </form>
+    </div>
+  </div>
+</div>

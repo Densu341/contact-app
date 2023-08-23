@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12 col-md-6">
+      <h2 class="text-center">Detail Contact</h2>
+      <!-- card bootstrap -->
+      <div class="card mx-auto">
+        <!-- <img
+          src="<%= contact.image %>"
+          class="card-img-top"
+          alt="<%= contact.nama %>"
+        /> -->
+        <div class="card-body text-center">
+          <% if(!contact) { %>
+          <div class="alert alert-danger" role="alert">
+            Data Contact Kosong.
+            <a href="/contact" class="alert-link">Kembali</a>
+          </div>
+          <% } else { %>
+          <h5 class="card-title"><%= contact.nama %></h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            <%= contact.nomer %>
+          </h6>
+          <p class="card-text"><%= contact.email %></p>
+          <a
+            href="/contact/edit/<%= contact.nama %>"
+            class="btn btn-warning badge"
+            ><i class="bi bi-pencil-square"></i> Edit</a
+          >
+          <form action="/contact?_method=DELETE" method="post" class="d-inline">
+            <input type="hidden" name="nama" value="<%= contact.nama %>" />
+            <button
+              type="submit"
+              class="btn btn-danger badge"
+              onclick="return confirm('Yakin dek?')"
+            >
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </form>
+          <a href="/contact" class="card-link d-block mt-3"
+            >&laquo; Kembali ke daftar contact</a
+          >
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

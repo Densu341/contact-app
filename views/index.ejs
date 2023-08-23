@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col">
+      <!-- include layouts -->
+      <h2>Halo, <%= nama %></h2>
+
+      <h4>Daftar Mahasiswa</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nama</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (mahasiswa.length<1) { %>
+          <p>Data Mahasiswa Kosong</p>
+          <% } else { %> <% mahasiswa.forEach(mhs => { %>
+          <tr>
+            <td><%= mhs.nama %></td>
+            <td><%= mhs.email %></td>
+          </tr>
+          <% }) %> <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

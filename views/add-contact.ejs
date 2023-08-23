@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-6 mx-auto">
+      <h2>Tambah Data</h2>
+      <!-- alert -->
+      <% if (typeof errors != 'undefined') { %>
+      <div class="alert alert-danger pb-0" role="alert">
+        <% errors.forEach((error) => {%>
+        <ul>
+          <li><%= error.msg %></li>
+        </ul>
+        <% }) %>
+      </div>
+      <% } %>
+      <form action="/contact" method="POST">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nama"
+            name="nama"
+            placeholder="Masukkan Nama"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nomer" class="form-label">No. HP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nomer"
+            name="nomer"
+            placeholder="Masukkan No. HP"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Masukkan Email"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Tambah</button>
+      </form>
+    </div>
+  </div>
+</div>
